@@ -1,7 +1,16 @@
 {
   "gateway": {
     "port": "${PORT:-3000}",
-    "token": "${OPENCLAW_GATEWAY_TOKEN}"
+    "auth": {
+      "token": "${OPENCLAW_GATEWAY_TOKEN}"
+    },
+    "http": {
+      "endpoints": {
+        "chatCompletions": {
+          "enabled": true
+        }
+      }
+    }
   },
   "workspace": "./workspace",
   "channels": {
