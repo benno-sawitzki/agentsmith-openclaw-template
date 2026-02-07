@@ -1,6 +1,6 @@
 {
   "gateway": {
-    "port": "${PORT:-3000}",
+    "port": "${OPENCLAW_PORT:-4000}",
     "auth": {
       "token": "${OPENCLAW_GATEWAY_TOKEN}"
     },
