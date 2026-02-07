@@ -1,0 +1,16 @@
+{
+  "gateway": {
+    "port": "${PORT:-3000}",
+    "token": "${OPENCLAW_GATEWAY_TOKEN}"
+  },
+  "workspace": "./workspace",
+  "channels": {
+    "telegram": {
+      "enabled": "${TELEGRAM_ENABLED:-false}",
+      "token": "${TELEGRAM_BOT_TOKEN}"
+    },
+    "whatsapp": {
+      "enabled": "${WHATSAPP_ENABLED:-false}"
+    }
+  }
+}
