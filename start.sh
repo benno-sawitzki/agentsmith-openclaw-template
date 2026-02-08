@@ -16,6 +16,14 @@ else
   echo "⚠ No SOUL_MD env var set — using placeholder"
 fi
 
+# Register OAuth token (from Claude Pro/Max subscription) if provided.
+# This uses OpenClaw's built-in auth profile system instead of ANTHROPIC_API_KEY.
+if [ -n "$ANTHROPIC_OAUTH_TOKEN" ]; then
+  npx openclaw onboard --auth-choice token --token-provider anthropic \
+    --token "$ANTHROPIC_OAUTH_TOKEN" --token-expires-in 365d 2>&1 || true
+  echo "✓ Anthropic OAuth token registered"
+fi
+
 # When OPENCLAW_CONFIG_JSON is set, OpenClaw listens directly on PORT
 # (no proxy needed — Agent Smith reads workspace files via Railway env vars).
 # Otherwise, fall back to the legacy proxy setup.
